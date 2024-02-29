@@ -6,6 +6,7 @@ use App\Http\Requests\MateriaInserirRequest;
 use App\Http\Requests\MateriaUpdateRequest;
 use App\Models\Materia;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MateriaApiController extends Controller
 {
@@ -47,10 +48,20 @@ class MateriaApiController extends Controller
         }
 
         if($request->method() === 'PATCH') {
+            //Remove o arquivo antigo caso tenham enviado um arquivo novo no request
+            if($request->file('materia_imagem')) {
+                Storage::disk('public')->delete($materia->materia_imagem);
+            }
             $materia->atualizar($request);
         } else {
+            //Remove o arquivo antigo caso tenham enviado um arquivo novo no request
+            if($request->file('materia_imagem')) {
+                Storage::disk('public')->delete($materia->materia_imagem);
+            }
             $materia->atualizar($request);
         }
+
+        
 
         return response()->json($materia, 200);
     }
@@ -58,9 +69,15 @@ class MateriaApiController extends Controller
     public function destroy($materia_id)
     {
         $materia = $this->materia->find($materia_id);
+
         if ($materia === null) {
             return response()->json(['ERRO' => 'Impossível realizar a exclusão. O recurso solicitado não existe.'], 404);
         }
+
+        //Diferente do IF anterior esse método remove a imagem caso o ID seja apagado;
+        Storage::disk('public')->delete($materia->materia_imagem);
+
+
         $materia->delete();
         return response()->json(['msg' => 'A marca foi removida com sucesso!'], 200);
     }
