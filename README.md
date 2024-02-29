@@ -5,10 +5,10 @@
 
 ## Como rodar o projeto
 - Após clonar o projeto utilizar os comandos:
-1 - composer require laravel/ui^2.4
-2 - php artisan ui vue --auth
-3 - npm install
-4 - npm run dev
+- 1 - composer require laravel/ui^2.4
+- 2 - php artisan ui vue --auth
+- 3 - npm install
+- 4 - npm run dev
 
 ## Database
 - Criar em seu localhost uma nova Database
