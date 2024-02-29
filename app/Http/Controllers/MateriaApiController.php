@@ -34,17 +34,6 @@ class MateriaApiController extends Controller
 
     public function store(MateriaInserirRequest $request)
     {
-        // dd($request->all());
-        // $materia = $this->materia->create([
-        //     'materia_titulo' => $request->materia_titulo,
-        //     'materia_descricao' => $request->materia_descricao,
-        //     'materia_imagem' => $request->materia_imagem,
-        //     'materia_data_publicacao' => date('Y-m-d'),
-        //     'materia_texto_completo' => $request->materia_texto_completo,
-        // ]);        
-        // $image = $request->file('materia_imagem');
-        // $image->store('imagens');
-
         $materia = $this->materia->criar($request);
         return response()->json($materia, 201);
     }
@@ -52,14 +41,15 @@ class MateriaApiController extends Controller
     public function update(MateriaUpdateRequest $request, $materia_id)
     {
         $materia = $this->materia->find($materia_id);
+        
         if($materia === null) {
             return response()->json(['ERRO' => 'Impossível realizar a atualização. O recurso solicitado não existe.'], 404);
         }
 
         if($request->method() === 'PATCH') {
-            $materia->update(array_filter($request->all()));
+            $materia->atualizar($request);
         } else {
-            $materia->update($request->all());
+            $materia->atualizar($request);
         }
 
         return response()->json($materia, 200);

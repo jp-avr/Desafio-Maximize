@@ -23,12 +23,12 @@ class Materia extends Model
     public static function criar($request)
     {
         $image = $request->file('materia_imagem');
-        $image->store('imagens');
+        $imagem_urn = $image->store('imagens', 'public');
 
         return self::create([
             'materia_titulo' => $request->materia_titulo,
             'materia_descricao' => $request->materia_descricao,
-            'materia_imagem' => $image,
+            'materia_imagem' => $imagem_urn,
             'materia_data_publicacao' => date('Y-m-d'),
             'materia_texto_completo' => $request->materia_texto_completo,
         ]);
@@ -36,11 +36,14 @@ class Materia extends Model
 
     public function atualizar($request)
     {
+        $image = $request->file('materia_imagem');
+        $imagem_urn = $image->store('imagens', 'public');
+
         return self::update([
             'materia_titulo' => $request->materia_titulo,
             'materia_descricao' => $request->materia_descricao,
-            'materia_imagem' => $request->materia_imagem,
-            'materia_data_publicacao' => $request->materia_data_publicacao,
+            'materia_imagem' => $imagem_urn,
+            'materia_data_publicacao' => date('Y-m-d'),
             'materia_texto_completo' => $request->materia_texto_completo,
         ]);
     }

@@ -28,7 +28,7 @@ class MateriaUpdateRequest extends FormRequest
         return [
             'materia_titulo' => ['required', 'string'],
             'materia_descricao' => ['required', 'string'],
-            'materia_imagem' => ['required'],
+            'materia_imagem' => ['required','image','mimes:jpeg,png,jpg,gif,svg|max:2048'],
             'materia_data_publicacao' => ['required', 'date'],
             'materia_texto_completo' => ['required', 'string'],
         ];
@@ -36,7 +36,7 @@ class MateriaUpdateRequest extends FormRequest
         return [
             'materia_titulo' => ['string'],
             'materia_descricao' => ['string'],
-            'materia_imagem' => [],
+            'materia_imagem' => ['image','mimes:jpeg,png,jpg,gif,svg|max:2048'],
             'materia_data_publicacao' => ['date'],
             'materia_texto_completo' => ['string'],
         ];
