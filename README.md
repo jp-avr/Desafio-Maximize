@@ -6,12 +6,13 @@
 ## Como rodar o projeto
 - Após clonar o projeto utilizar os comandos:
 - 1 - composer require laravel/ui:^2.4
-- 2 - php artisan ui vue --auth
-- 3 - npm install
-- 4 - npm run dev
-- 5 - php artisan storage:link (faz um link para o local que está sendo salvo as imagens)
-- 6 - composer require tymon/jwt-auth (autenticação token)
+- 2 - npm install
+- 3 - npm run dev (desenvolvimento) ou npm run production (produção)
+- 4 - php artisan storage:link (faz um link para o local que está sendo salvo as imagens)
+- 5 - composer require tymon/jwt-auth (autenticação token)
+- 6 - Caso seu projeto não venha com o .env você deverá crialo na raiz do projeto
 - 7 - php artisan jwt:secret (cria uma chave token no .env)
+- 8 - php artisan serve (Para rodar o projeto)
 - Obs: Caso esteja rodando em ambiente de desenvolvimento no Google Chrome é recomendado que baixe a extensão para Vue.js nesse link:
 https://devtools.vuejs.org/guide/installation.html
 
