@@ -12,7 +12,8 @@
 - 5 - composer require tymon/jwt-auth (autenticação token)
 - 6 - Caso seu projeto não venha com o .env você deverá crialo na raiz do projeto
 - 7 - php artisan jwt:secret (cria uma chave token no .env)
-- 8 - php artisan serve (Para rodar o projeto)
+- 8 - php artisan migrate:fresh --seed (para puxar localmente todas as tabelas do banco.)
+- 9 - php artisan serve (Para rodar o projeto)
 - Obs: Caso esteja rodando em ambiente de desenvolvimento no Google Chrome é recomendado que baixe a extensão para Vue.js nesse link:
 https://devtools.vuejs.org/guide/installation.html
 
