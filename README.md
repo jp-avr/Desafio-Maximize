@@ -12,6 +12,8 @@
 - 5 - php artisan storage:link (faz um link para o local que está sendo salvo as imagens)
 - 6 - composer require tymon/jwt-auth (autenticação token)
 - 7 - php artisan jwt:secret (cria uma chave token no .env)
+- Obs: Caso esteja rodando em ambiente de desenvolvimento no Google Chrome é recomendado que baixe a extensão para Vue.js nesse link:
+https://devtools.vuejs.org/guide/installation.html
 
 ## Database
 - Criar em seu localhost uma nova Database
