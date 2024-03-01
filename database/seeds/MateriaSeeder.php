@@ -13,8 +13,8 @@ class MateriaSeeder extends Seeder
      */
     public function run()
     {
-        $image = file_get_contents(public_path('img\bmw.png')); // Substitua 'sample.jpg' pelo nome do seu arquivo de imagem
-        $imageName = 'bmw.png'; // Nome da imagem a ser armazenada
+        $image = file_get_contents(public_path('img/image.jpg')); // Substitua 'sample.jpg' pelo nome do seu arquivo de imagem
+        $imageName = 'image.jpg'; // Nome da imagem a ser armazenada
 
         Storage::disk('public')->put('imagens/' . $imageName, $image);
 

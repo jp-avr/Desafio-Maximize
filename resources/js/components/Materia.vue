@@ -1,16 +1,21 @@
 <template>
     <div class="container">
         <div class="row justify-content-center">
-            <card-materias titulo="Titulo" :dados="materias"></card-materias>
-
+            <card-materias titulo="Titulo" :dados="materias.data"></card-materias>
+            
             <!-- CARDS DE LISTAGEM -->
             <div class="col-md-2">
                 <!-- Conteúdo da terceira coluna -->
                 <div class="bg-info text-white p-3">
-                <h3>Terceira Coluna</h3>
-                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    <h3>Terceira Coluna</h3>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                 </div>
             </div>
+            <paginate-component>
+                <li v-for="l, key in materias.links" :key="key" class="page-item">
+                    <a class="page-link" href="#">{{l}}</a>
+                </li>
+            </paginate-component>
 
         </div>
     </div>
@@ -43,10 +48,17 @@
         urlBase: 'http://localhost:8000/api/v1/materia',
         errorMessage: '',
         successMessage: '',
-        materias: [],
+        materias: { data: []},
+        posts: {}
       };
     },
     methods: {
+        getPosts(page = 1) {
+            axios.get('http://localhost:8000/api/v1/materia?page=' + page)
+            .then(response => {
+                this.posts = response.data;
+            })
+        },
         carregarLista() {
 
             let config = {
@@ -58,7 +70,7 @@
 
             axios.get(this.urlBase, config)
             .then(response => {
-                this.materias = response.data.data
+                this.materias = response.data
                 console.log(this.materias)
             })
             .catch(errors => {
@@ -67,7 +79,8 @@
         }
     },
     mounted() {
-        this.carregarLista()
+        this.carregarLista();
+        this.getPosts();
     }
   };
 </script>
