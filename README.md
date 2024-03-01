@@ -16,6 +16,10 @@
 - Obs: Caso esteja rodando em ambiente de desenvolvimento no Google Chrome é recomendado que baixe a extensão para Vue.js nesse link:
 https://devtools.vuejs.org/guide/installation.html
 
+## Credenciais
+- Login: dev@dev.com
+- Password: 123
+
 ## Database
 - Criar em seu localhost uma nova Database
 - Em seguida coloque o nome da Database criada no seu .env no campo 'DB_DATABASE' da seguinte forma: 
