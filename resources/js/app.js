@@ -21,6 +21,11 @@ window.Vue = require('vue');
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('login-component', require('./components/Login.vue').default);
+Vue.component('home-component', require('./components/Home.vue').default);
+Vue.component('materias-component', require('./components/Materia.vue').default);
+Vue.component('card-materias', require('./components/CardMateria.vue').default);
+Vue.component('materia-completa', require('./components/MateriaCompleta.vue').default);
+Vue.component('materia-inserir', require('./components/MateriaInserir.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
