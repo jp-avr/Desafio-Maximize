@@ -93,9 +93,12 @@ export default {
         .catch(error => {
           if (error.response && error.response.status === 422 && error.response.data.errors) {
               // Se houver erros de validação, atualize o estado do componente com as mensagens de erro
+              this.Error();
               this.errorMessage = Object.values(error.response.data.errors).join('.'+'<br>');
+              
           } else {
               this.errorMessage = 'Ocorreu um erro ao enviar o formulário.';
+
           }
           console.error(error);
         });
@@ -107,6 +110,10 @@ export default {
       this.form.materia_imagem = [];
       this.form.materia_texto_completo = '';
       this.form.materia_data_publicacao = '';
+      this.errorMessage = '';
+  },
+  Error() {
+    this.successMessage = '';
   }
   }
 };

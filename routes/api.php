@@ -17,14 +17,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
     Route::get('materia', 'MateriaApiController@index');
     Route::get('materia/{id}', 'MateriaApiController@show');
 
 Route::prefix('v1')->middleware('jwt.auth')->group(function () {
-    Route::post('materia', 'MateriaController@store');
-    Route::post('materia/{id}', 'MateriaController@update');
-    Route::post('materia/{id}', 'MateriaController@destroy');
+    Route::post('materia', 'MateriaApiController@store');
+    Route::post('materia/{id}', 'MateriaApiController@update');
+    Route::post('materia/{id}', 'MateriaApiController@destroy');
     // Route::apiResource('materia', 'MateriaApiController');
     Route::post('me', 'AuthController@me');
     Route::post('refresh', 'AuthController@refresh');
