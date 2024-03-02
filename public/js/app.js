@@ -4071,13 +4071,13 @@ var render = function render() {
       }
     })]), _vm._v(" "), _c("div", {
       staticClass: "modal-body"
-    }, [_c("div", [_vm._v("\n                        " + _vm._s(_vm.$store.state.item.materia_data_publicacao) + "\n                        " + _vm._s(_vm.$store.state.item.materia_texto_completo) + "\n                    ")]), _vm._v(" "), _c("div", [_vm._v("\n                        " + _vm._s(_vm.$store.state.item.materia_descricao) + "\n                    ")]), _vm._v(" "), _c("div", [_c("img", {
+    }, [_c("div", [_vm._v("\n                        " + _vm._s(_vm.$store.state.item.materia_data_publicacao) + "\n                        " + _vm._s(_vm.$store.state.item.materia_texto_completo) + "\n                    ")]), _vm._v(" "), _c("div", [_vm._v("\n                        " + _vm._s(_vm.$store.state.item.materia_descricao) + "\n                    ")]), _vm._v(" "), _c("div", [_vm.$store.state.item.materia_imagem ? _c("img", {
       attrs: {
         src: "storage/" + _vm.$store.state.item.materia_imagem,
         width: "200",
         height: "250"
       }
-    })]), _vm._v(" "), _c("div", [_vm._v("\n                        " + _vm._s(_vm.$store.state.item.materia_texto_completo) + "\n                    ")])]), _vm._v(" "), _vm._m(0, true)])])]);
+    }) : _vm._e()]), _vm._v(" "), _c("div", [_vm._v("\n                        " + _vm._s(_vm.$store.state.item.materia_texto_completo) + "\n                    ")])]), _vm._v(" "), _vm._m(0, true)])])]);
   }), 0);
 };
 var staticRenderFns = [function () {

@@ -16,7 +16,7 @@
                             {{ $store.state.item.materia_descricao }}
                         </div>
                         <div>
-                            <img :src="'storage/'+$store.state.item.materia_imagem" width="200" height="250">
+                            <img :src="'storage/'+$store.state.item.materia_imagem" v-if="$store.state.item.materia_imagem" width="200" height="250">
                         </div>
                         <div>
                             {{ $store.state.item.materia_texto_completo }}
