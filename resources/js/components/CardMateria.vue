@@ -1,23 +1,23 @@
 <template>
-    <div class="col-md-8">
-        <div v-for="materia in dados" :key="materia.materia_id">
-            <div class="card col-md-5 mb-3" style="padding: 15px">
-                <img :src="'storage/'+materia.materia_imagem" height="271" width="250" alt="Descrição da imagem">
-                <div class="card-body">
-                    <h5 class="card-title">{{materia.materia_titulo}}</h5>
-                    <p class="card-text">{{materia.materia_descricao}}</p>
-                    <a href="#" class="btn btn-primary">Ler Mais</a>
+    <div class="d-flex flex-wrap gap-3">
+        <div v-for="materia in dados" :key="materia.materia_id" class="col-md-5">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative m-2">
+                <div class="col p-4 d-flex flex-column position-static">
+                    <h3 class="mb-0" style="font-family: Playfair Display, serif;"> {{materia.materia_titulo}} </h3>
+                    <div class="mb-1 text-body-secondary">
+                        {{materia.materia_data_publicacao}}
+                    </div>
+
+                    <p class="card-text mb-auto"> {{materia.materia_descricao}}</p>
+                    <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                        Ler mais
+                    </a>
+                </div>
+                <div class="col-auto d-none d-lg-block" style="padding-left: 0; padding-right: 0;">
+                    <img :src="'storage/'+materia.materia_imagem" height="350" width="250" alt="Descrição da imagem">
                 </div>
             </div>
         </div>
-        <!-- <div v-for="materia in dados" :key="materia.materia_id">
-            <div class="card-body">
-                <h5 class="card-title">{{materia.materia_titulo}}</h5>
-                <p class="card-text">{{materia.materia_descricao}}</p>
-                <a href="#" class="btn btn-primary">Ler Mais</a>
-            </div>
-        </div>
-        {{ dados }} -->
     </div>
 </template>
 
