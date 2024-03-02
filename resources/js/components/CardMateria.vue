@@ -1,30 +1,52 @@
 <template>
     <div class="row">
-        <div v-for="materia in dados" :key="materia.materia_id" class="col-md-6">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row shadow-sm h-md-250 position-relative">
-                <div class="col p-4 d-flex flex-column position-static">
-                    <h3 class="mb-0"> {{materia.materia_data_publicacao}} </h3>
-                    <div class="mb-1 text-body-secondary">{{materia.materia_descricao}}</div>
-                    <p class="card-text mb-auto"> {{materia.materia_descricao}}</p>
-                    <a href="#" v-if="visualizar" class="icon-link gap-1 icon-link-hover stretched-link" data-toggle="modal" data-target="#modalMateria" @click="setStore(materia)">
-                        Continue reading
-                        <svg class="bi"><use xlink:href="#chevron-right"/></svg>
-                    </a>
-                </div>
-                <div class="col-auto d-none d-lg-block" style="padding-left: 0; padding-right: 0;">
-                    <img class="bd-placeholder-img" :src="'storage/'+materia.materia_imagem" width="200" height="250" alt="Descrição da imagem">
-                </div>
+      <div v-for="materia in dados" :key="materia.materia_id" class="col-md-6 mb-4">
+        <div class="card h-100">
+          <div class="row no-gutters">
+            <div class="col-md-8">
+              <div class="card-body">
+                <h3 class="card-title">{{ materia.materia_titulo }}</h3>
+                <h5 class="card-subtitle mb-2 text-muted">{{ materia.created_at | formataDataTempo }}</h5>
+                <h5 class="card-subtitle mb-2">{{ materia.materia_descricao }}</h5>
+                <a href="#" v-if="visualizar" class="icon-link-hover stretched-link" data-toggle="modal" data-target="#modalMateria" @click="setStore(materia)">
+                  Continue lendo
+                </a>
+              </div>
             </div>
-        </div>   
-        
-
-        <modal-component id="modalMateria" titulo="Notícia" :dados="materias.data"></modal-component>
-
+            <div class="col-md-4 d-flex align-items-center">
+              <img class="card-img-top img-fluid custom-img" :src="'storage/' + materia.materia_imagem" alt="Descrição da imagem">
+            </div>
+          </div>
+        </div>
+      </div>
+      <modal-component id="modalMateria" titulo="Notícia" :dados="materias.data"></modal-component>
     </div>
-</template>
-
-<script>
-export default {
+  </template>
+  
+  <script>
+  export default {
+    filters: {
+          formataDataTempo(d) {
+            d = d.split('T')
+            
+            let data = d[0]
+            let tempo = d[1]
+            
+            data = data.split('-')
+            var dia = data[2]
+            var mes = data[1]
+            var ano = data[0]
+              
+            // // Mapeando números de meses para nomes abreviados
+            var mesesAbreviados = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+            
+            // // Obtendo o nome abreviado do mês
+            var mesAbreviado = mesesAbreviados[mes - 1]; // Subtraindo 1 porque os índices de arrays começam em 0
+              
+            var dataFormatada = mesAbreviado + ' ' + dia;
+            return dataFormatada;
+          }
+      },
     props: ['dados', 'titulo', 'visualizar'],  
     data() {
     return {
@@ -37,7 +59,7 @@ export default {
             this.$store.state.item = materia
         },
         carregarLista() {
-
+  
             axios.get(this.urlBase)
             .then(response => {
                 this.materias = response.data
@@ -50,6 +72,13 @@ export default {
     },
     mounted() {
     this.carregarLista();
-}
-};
-</script>
+  }
+  };
+  </script>
+  <style scoped>
+  
+  .custom-img {
+  max-width: 100%; 
+  height: auto;
+  }
+  </style>

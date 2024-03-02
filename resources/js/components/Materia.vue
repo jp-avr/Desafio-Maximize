@@ -9,7 +9,6 @@
         </div>
 
         <card-materias id="modalMateriaVisualizar" :dados="materias.data" :visualizar="true"></card-materias>
-
         
     </div>
 </template>
@@ -38,7 +37,7 @@ data() {
       materia_texto_completo: '',
       materia_data_publicacao: ''
     },
-    urlBase: 'http://localhost:8000/api/materia',
+    urlBase: 'http://localhost:8000/api/materia_completa',
     errorMessage: '',
     successMessage: '',
     materias: { data: []},

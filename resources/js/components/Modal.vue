@@ -9,8 +9,7 @@
                     </div>
                     <div class="modal-body">
                         <div>
-                            {{ $store.state.item.materia_data_publicacao }}
-                            {{ $store.state.item.materia_texto_completo }}
+                            {{ $store.state.item.created_at  | formataDataTempo }}
                         </div>
                         <div>
                             {{ $store.state.item.materia_descricao }}
@@ -33,6 +32,33 @@
 
 <script>
     export default {
+        filters: {
+        formataDataTempo(d) {
+            d = d.split('T')
+          
+            let data = d[0]
+            let tempo = d[1]
+            
+            //formatando as datas
+            data = data.split('-')
+            var dia = data[2]
+            var mes = data[1]
+            var ano = data[0]
+                
+            //Formatando o tempo
+            tempo = tempo.split('.')
+            tempo = tempo[0]
+
+            // // Mapeando números de meses para nomes abreviados
+            var mesesAbreviados = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
+            
+            // // Obtendo o nome abreviado do mês
+            var mesAbreviado = mesesAbreviados[mes - 1]; // Subtraindo 1 porque os índices de arrays começam em 0
+                
+            var dataFormatada = mesAbreviado + ' ' + dia + ' às ' + tempo;
+            return dataFormatada;
+        }
+    },
         props: ['id', 'dados', 'titulo']
     }
 </script>

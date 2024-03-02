@@ -18,6 +18,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
     Route::get('materia', 'MateriaApiController@index');
+    Route::get('materia_completa', 'MateriaApiController@index_completo');
     Route::get('materia/{id}', 'MateriaApiController@show');
 
 Route::prefix('v1')->middleware('jwt.auth')->group(function () {

@@ -25,6 +25,13 @@ class MateriaApiController extends Controller
         return response()->json($materias, 200);
     }
 
+    public function index_completo()
+    {
+        $materias = $this->materia->orderBy('materia_id','desc')->paginate(5); //Acessando um método de um objeto
+
+        return response()->json($materias, 200);
+    }
+
     public function show($materia_id)
     {
         $materia = $this->materia->find($materia_id);
