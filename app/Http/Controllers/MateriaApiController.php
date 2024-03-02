@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Storage;
 
 class MateriaApiController extends Controller
 {
-    public function __construct(Materia $materium) { //O método construtor é chamado automaticamente quando um objeto de classe é instanciado 
-        $this->materia = $materium;
+    public function __construct(Materia $materia_id) { //O método construtor é chamado automaticamente quando um objeto de classe é instanciado 
+        $this->materia = $materia_id;
     }
 
     public function index()

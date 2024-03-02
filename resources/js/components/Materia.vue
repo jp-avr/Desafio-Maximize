@@ -1,11 +1,11 @@
 <template>
     <div class="p-5">
         <card-materias titulo="Titulo" :dados="materias.data"></card-materias>
-        <paginate-component>
+        <!-- <paginate-component>
             <li v-for="l, key in materias.links" :key="key" class="page-item">
                 <a class="page-link" href="#">{{l}}</a>
             </li>
-        </paginate-component>
+        </paginate-component> -->
     </div>
 </template>
 
@@ -33,7 +33,7 @@ data() {
       materia_texto_completo: '',
       materia_data_publicacao: ''
     },
-    urlBase: 'http://localhost:8000/api/v1/materia',
+    urlBase: 'http://localhost:8000/api/materia',
     errorMessage: '',
     successMessage: '',
     materias: { data: []},
@@ -42,7 +42,7 @@ data() {
 },
 methods: {
     getPosts(page = 1) {
-        axios.get('http://localhost:8000/api/v1/materia?page=' + page)
+        axios.get('http://localhost:8000/api/materia?page=' + page)
         .then(response => {
             this.posts = response.data;
         })

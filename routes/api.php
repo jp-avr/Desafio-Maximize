@@ -18,8 +18,14 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+    Route::get('materia', 'MateriaApiController@index');
+    Route::get('materia/{id}', 'MateriaApiController@show');
+
 Route::prefix('v1')->middleware('jwt.auth')->group(function () {
-    Route::apiResource('materia', 'MateriaApiController');
+    Route::post('materia', 'MateriaController@store');
+    Route::post('materia/{id}', 'MateriaController@update');
+    Route::post('materia/{id}', 'MateriaController@destroy');
+    // Route::apiResource('materia', 'MateriaApiController');
     Route::post('me', 'AuthController@me');
     Route::post('refresh', 'AuthController@refresh');
     Route::post('logout', 'AuthController@logout');

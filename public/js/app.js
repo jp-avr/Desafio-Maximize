@@ -2015,7 +2015,7 @@ __webpack_require__.r(__webpack_exports__);
         materia_texto_completo: '',
         materia_data_publicacao: ''
       },
-      urlBase: 'http://localhost:8000/api/v1/materia',
+      urlBase: 'http://localhost:8000/api/materia',
       errorMessage: '',
       successMessage: '',
       materias: {
@@ -2028,7 +2028,7 @@ __webpack_require__.r(__webpack_exports__);
     getPosts: function getPosts() {
       var _this = this;
       var page = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 1;
-      axios.get('http://localhost:8000/api/v1/materia?page=' + page).then(function (response) {
+      axios.get('http://localhost:8000/api/materia?page=' + page).then(function (response) {
         _this.posts = response.data;
       });
     },
@@ -2481,17 +2481,7 @@ var render = function render() {
       titulo: "Titulo",
       dados: _vm.materias.data
     }
-  }), _vm._v(" "), _c("paginate-component", _vm._l(_vm.materias.links, function (l, key) {
-    return _c("li", {
-      key: key,
-      staticClass: "page-item"
-    }, [_c("a", {
-      staticClass: "page-link",
-      attrs: {
-        href: "#"
-      }
-    }, [_vm._v(_vm._s(l))])]);
-  }), 0)], 1);
+  })], 1);
 };
 var staticRenderFns = [];
 render._withStripped = true;
