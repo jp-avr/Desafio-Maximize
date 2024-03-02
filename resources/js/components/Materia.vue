@@ -8,18 +8,15 @@
             </div>
         </div>
 
-        <card-materias titulo="Titulo" :dados="materias.data"></card-materias>
-        <!-- <paginate-component>
-            <li v-for="l, key in materias.links" :key="key" class="page-item">
-                <a class="page-link" href="#">{{l}}</a>
-            </li>
-        </paginate-component> -->
+        <card-materias id="modalMateriaVisualizar" :dados="materias.data" :visualizar="true"></card-materias>
+
+        
     </div>
 </template>
 
 <script>
 export default {
-    props: ['dados'],  
+    props: ['dados', 'titulo'],  
 computed: {
         token() {
             let token = document.cookie.split(';').find(indice => {

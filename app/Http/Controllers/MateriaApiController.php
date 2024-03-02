@@ -21,6 +21,7 @@ class MateriaApiController extends Controller
         $materias->each(function ($materia) {
             $materia->makeHidden('materia_texto_completo');
         });
+        
         return response()->json($materias, 200);
     }
 
