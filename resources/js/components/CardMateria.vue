@@ -9,7 +9,7 @@
                     </div>
 
                     <p class="card-text mb-auto"> {{materia.materia_descricao}}</p>
-                    <a href="#" class="icon-link gap-1 icon-link-hover stretched-link">
+                    <a :href="'/show/' + materia.materia_id" class="icon-link gap-1 icon-link-hover stretched-link">
                         Ler mais
                     </a>
                 </div>

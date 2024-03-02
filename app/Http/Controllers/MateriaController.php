@@ -9,12 +9,16 @@ class MateriaController extends Controller
 {
     public function index()
     {
-        $materias = Materia::paginate(10);
-        return view('welcome', compact('materias'));
+        return view('welcome');
     }
 
     public function inserir()
     {
         return view('inserir_materia');
+    }
+
+    public function show()
+    {
+        return view('show', compact('materia'));
     }
 }
