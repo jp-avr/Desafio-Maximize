@@ -1,4 +1,4 @@
-<footer class="footer" style="background-color: #444444">
+<footer class="footer" style="background-color: #444444; position:fixed; bottom:0;width: 100%;">
     <div class="container-fluid">
         <div class="row text-muted">
             <p class="mb-0" style="padding-bottom: 15px;padding-top: 15px;">

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UserRegistroRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -18,6 +21,27 @@ class AuthController extends Controller
         }
         return 'login';
     }
+    public function register(UserRegistroRequest $request)
+    {
+        $credenciais = $request->only('name', 'email', 'password', 'password_confirmation');
+
+        // Validação dos dados
+        $validator = Validator::make($credenciais, ['name', 'email','password']);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors()], 422);
+        }
+
+        // Criar o usuário
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        return response()->json(['message' => 'Usuário registrado com sucesso'], 201);
+    }
+    
     public function logout()
     {
         auth('api')->logout();

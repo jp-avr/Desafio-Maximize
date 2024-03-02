@@ -33,6 +33,7 @@ const store = new Vuex.Store({
 
 Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 Vue.component('login-component', require('./components/Login.vue').default);
+Vue.component('register-component', require('./components/Registrar.vue').default);
 Vue.component('home-component', require('./components/Home.vue').default);
 Vue.component('materias-component', require('./components/Materia.vue').default);
 Vue.component('card-materias', require('./components/CardMateria.vue').default);
