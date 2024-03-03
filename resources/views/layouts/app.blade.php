@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"></script>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,9 +25,9 @@
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body style="background-color: #FFFCFF;">
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #0DADAE">
+        <nav class="navbar navbar-expand-md navbar-light shadow-sm" style="background-color: #0DADAE;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img src="{{asset('img/logo.svg')}}" alt="">
@@ -74,7 +75,7 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4 d-flex">
             @yield('content')
         </main>
         @include('components.footers.nav')

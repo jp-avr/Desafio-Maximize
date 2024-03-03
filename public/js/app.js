@@ -3514,6 +3514,7 @@ __webpack_require__.r(__webpack_exports__);
       //Formatando o tempo
       tempo = tempo.split('.');
       tempo = tempo[0];
+      console.log(tempo);
 
       // // Mapeando números de meses para nomes abreviados
       var mesesAbreviados = ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'];
@@ -3635,23 +3636,23 @@ var render = function render() {
       staticClass: "card-body"
     }, [_c("h3", {
       staticClass: "card-title"
-    }, [_vm._v(_vm._s(materia.materia_titulo))]), _vm._v(" "), _c("h5", {
+    }, [_vm._v(_vm._s(materia.materia_titulo))]), _vm._v(" "), _c("p", {
       staticClass: "card-subtitle mb-2 text-muted"
-    }, [_vm._v(_vm._s(_vm._f("formataDataTempo")(materia.created_at)))]), _vm._v(" "), _c("h5", {
+    }, [_vm._v(_vm._s(_vm._f("formataDataTempo")(materia.created_at)))]), _vm._v(" "), _c("p", {
       staticClass: "card-subtitle mb-2"
     }, [_vm._v(_vm._s(materia.materia_descricao))]), _vm._v(" "), _vm.visualizar ? _c("a", {
-      staticClass: "icon-link-hover stretched-link",
+      staticClass: "icon-link-hover stretched-link fw-semibold",
       attrs: {
         href: "#",
-        "data-toggle": "modal",
-        "data-target": "#modalMateria"
+        "data-bs-toggle": "modal",
+        "data-bs-target": "#modalMateria"
       },
       on: {
         click: function click($event) {
           return _vm.setStore(materia);
         }
       }
-    }, [_vm._v("\n              Continue lendo\n            ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
+    }, [_vm._v("\n              Ler mais\n            ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-4 d-flex align-items-center"
     }, [_c("img", {
       staticClass: "card-img-top img-fluid custom-img",
@@ -3919,6 +3920,9 @@ var render = function render() {
   return _c("div", {
     staticClass: "container"
   }, [_vm._m(0), _vm._v(" "), _c("card-materias", {
+    staticStyle: {
+      "padding-bottom": "5rem"
+    },
     attrs: {
       id: "modalMateriaVisualizar",
       dados: _vm.materias.data,
@@ -3934,17 +3938,10 @@ var staticRenderFns = [function () {
   }, [_c("div", {
     staticClass: "col-lg-6 px-0"
   }, [_c("h1", {
-    staticClass: "display-4 fst-italic"
-  }, [_vm._v("Descubra os avanços em saúde animal")]), _vm._v(" "), _c("p", {
+    staticClass: "display-4 fw-bold"
+  }, [_vm._v("Os avanços em saúde animal")]), _vm._v(" "), _c("p", {
     staticClass: "lead my-3"
-  }, [_vm._v("Exploramos o que há de mais moderno em medicina veterinária, proporcionando saúde e bem-estar aos animais.")]), _vm._v(" "), _c("p", {
-    staticClass: "lead mb-0"
-  }, [_c("a", {
-    staticClass: "text-body-emphasis fw-bo ld",
-    attrs: {
-      href: "#"
-    }
-  }, [_vm._v("Continue lendo...")])])])]);
+  }, [_vm._v("Exploramos o que há de mais moderno em medicina veterinária, proporcionando saúde e bem-estar aos animais.")])])]);
 }];
 render._withStripped = true;
 
@@ -4007,9 +4004,9 @@ var render = function render() {
     staticClass: "container mt-4 d-flex justify-content-center"
   }, [_c("div", {
     staticClass: "card p-4"
-  }, [_c("h1", {
-    staticClass: "text-center mb-4"
-  }, [_vm._v("Notícia")]), _vm._v(" "), _vm.errorMessage ? _c("div", {
+  }, [_c("h4", {
+    staticClass: "mb-4 fw-bold"
+  }, [_vm._v("Inserir notícia")]), _vm._v(" "), _vm.errorMessage ? _c("div", {
     staticClass: "error-message",
     domProps: {
       innerHTML: _vm._s(_vm.errorMessage)
@@ -4119,7 +4116,10 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary btn-block",
+    staticClass: "btn btn-block text-light",
+    staticStyle: {
+      "background-color": "#0DADAE"
+    },
     attrs: {
       type: "submit"
     },
@@ -4161,35 +4161,46 @@ var render = function render() {
         "aria-hidden": "true"
       }
     }, [_c("div", {
-      staticClass: "modal-dialog"
+      staticClass: "modal-dialog modal-dialog-scrollable modal-lg"
     }, [_c("div", {
       staticClass: "modal-content"
-    }, [_c("div", {
-      staticClass: "modal-header"
-    }, [_c("h5", {
-      staticClass: "modal-title",
-      attrs: {
-        id: "exampleModalLabel"
+    }, [_vm._m(0, true), _vm._v(" "), _c("div", {
+      staticClass: "modal-body",
+      staticStyle: {
+        padding: "2rem"
       }
-    }, [_vm._v(_vm._s(_vm.$store.state.item.materia_titulo))]), _vm._v(" "), _c("button", {
-      staticClass: "btn-close",
-      attrs: {
-        type: "button",
-        "data-bs-dismiss": "modal",
-        "aria-label": "Close"
-      }
-    })]), _vm._v(" "), _c("div", {
-      staticClass: "modal-body"
-    }, [_c("div", [_vm._v("\n                        " + _vm._s(_vm._f("formataDataTempo")(_vm.$store.state.item.created_at)) + "\n                    ")]), _vm._v(" "), _c("div", [_vm._v("\n                        " + _vm._s(_vm.$store.state.item.materia_descricao) + "\n                    ")]), _vm._v(" "), _c("div", [_vm.$store.state.item.materia_imagem ? _c("img", {
+    }, [_c("h1", {
+      staticClass: "fw-bold"
+    }, [_vm._v(" " + _vm._s(_vm.$store.state.item.materia_titulo) + " ")]), _vm._v(" "), _c("p", [_vm._v(" " + _vm._s(_vm.$store.state.item.materia_descricao) + " ")]), _vm._v(" "), _c("p", {
+      staticClass: "text-secondary"
+    }, [_vm._v(" Última atualização em " + _vm._s(_vm._f("formataDataTempo")(_vm.$store.state.item.created_at)) + " ")]), _vm._v(" "), _c("div", [_vm.$store.state.item.materia_imagem ? _c("img", {
       attrs: {
         src: "storage/" + _vm.$store.state.item.materia_imagem,
-        width: "200",
-        height: "250"
+        width: "100%",
+        height: "auto"
       }
-    }) : _vm._e()]), _vm._v(" "), _c("div", [_vm._v("\n                        " + _vm._s(_vm.$store.state.item.materia_texto_completo) + "\n                    ")])]), _vm._v(" "), _vm._m(0, true)])])]);
+    }) : _vm._e()]), _vm._v(" "), _c("p", {
+      staticStyle: {
+        "text-align": "justify",
+        "margin-top": "1rem"
+      }
+    }, [_vm._v(" " + _vm._s(_vm.$store.state.item.materia_texto_completo) + " ")])]), _vm._v(" "), _vm._m(1, true)])])]);
   }), 0);
 };
 var staticRenderFns = [function () {
+  var _vm = this,
+    _c = _vm._self._c;
+  return _c("div", {
+    staticClass: "modal-header"
+  }, [_c("button", {
+    staticClass: "btn-close",
+    attrs: {
+      type: "button",
+      "data-bs-dismiss": "modal",
+      "aria-label": "Close"
+    }
+  })]);
+}, function () {
   var _vm = this,
     _c = _vm._self._c;
   return _c("div", {
@@ -8777,7 +8788,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.custom-img[data-v-41e4bb1a] {\nmax-width: 100%; \nheight: auto;\n}\n", ""]);
+exports.push([module.i, "\n.custom-img[data-v-41e4bb1a] {\r\n    max-width: 100%; \r\n    height: 100%;\r\n    -o-object-fit: cover;\r\n       object-fit: cover;\n}\r\n", ""]);
 
 // exports
 

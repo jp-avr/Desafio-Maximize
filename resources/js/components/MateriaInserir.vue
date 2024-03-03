@@ -2,7 +2,7 @@
   
   <div class="container mt-4 d-flex justify-content-center">
   <div class="card p-4">
-    <h1 class="text-center mb-4">Notícia</h1>
+    <h4 class="mb-4 fw-bold">Inserir notícia</h4>
     <div v-if="errorMessage" v-html="errorMessage" class="error-message"></div>
     <div v-if="successMessage" class="success-message">{{ successMessage }}</div>
     <div class="form-group">
@@ -21,7 +21,7 @@
       <label for="textoCompleto">Texto Completo:</label>
       <textarea class="form-control" id="textoCompleto" v-model="form.materia_texto_completo" required></textarea>
     </div>
-    <button type="submit" class="btn btn-primary btn-block" @click="salvar()">Enviar</button>
+    <button type="submit" style="background-color: #0DADAE;" class="btn btn-block text-light" @click="salvar()">Enviar</button>
   </div>
 </div>
 
