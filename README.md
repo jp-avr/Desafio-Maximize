@@ -3,9 +3,17 @@
 - Esta aplicação visa a criação de um Feed de notícias utilizando uma API.
 - A aplicação está utilizando Laravel 7.x e PHP 7.3.33.
 
+### 📋 Pré-requisitos
+
+- PHP 7.3.33
+- Composer
+- Node 20.10.0 (versões recentes)
+
+
 ## Como rodar o projeto
 - Após clonar o projeto utilizar os comandos:
-- 1 - composer require laravel/ui:^2.4
+
+- 1 - ```composer require laravel/ui:^2.4```
 - 2 - npm install
 - 3 - npm run dev (desenvolvimento) ou npm run production (produção)
 - 4 - php artisan storage:link (faz um link para o local que está sendo salvo as imagens)
