@@ -1,13 +1,15 @@
 <template>
   <div class="row">
-    <div v-for="materia in dados" :key="materia.materia_id" class="col-md-6 mb-4">
+    <div v-for="materia in dados" :key="materia.materia_id" class="col-md-6 mb-4" >
       <div class="card h-100" data-bs-toggle="modal" data-bs-target="#modalMateria" @click="setStore(materia)">
-        <div class="row no-gutters">
+        <div class="row no-gutters h-100">
           <div class="col-md-8">
-            <div class="card-body">
-              <h3 class="card-title">{{ materia.materia_titulo }}</h3>
-              <p class="card-subtitle mb-2 text-muted">{{ materia.created_at | formataDataTempo }}</p>
-              <p class="card-subtitle mb-2">{{ materia.materia_descricao }}</p>
+            <div class="card-body h-100 d-flex justify-content-between flex-column">
+              <div>
+                <h3 class="card-title">{{ materia.materia_titulo }}</h3>
+                <p class="card-subtitle mb-2 text-muted">{{ materia.created_at | formataDataTempo }}</p>
+                <p class="card-subtitle mb-2">{{ materia.materia_descricao }}</p>
+              </div>
               <a v-if="visualizar" class="icon-link-hover stretched-link fw-semibold">
                 Ler mais
               </a>

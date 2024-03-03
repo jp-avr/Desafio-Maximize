@@ -1,4 +1,4 @@
-<footer class="footer bg-body-secondary" style="width: 100%; position:relative; bottom: 0;">
+<footer class="footer bg-body-secondary" style="width: 100%; position:fixed; bottom: 0;">
     <div class="container-fluid">
         <div class="row text-muted">
             <p class="mb-0" style="padding-bottom: 15px;padding-top: 15px;">

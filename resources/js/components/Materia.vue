@@ -7,9 +7,9 @@
             </div>
         </div>
 
-        <card-materias style="padding-bottom: 5rem;" id="modalMateriaVisualizar" :dados="materias.data" :visualizar="true"></card-materias>
+        <card-materias id="modalMateriaVisualizar" :dados="materias.data" :visualizar="true"></card-materias>
             
-        <div class="pagination-container">
+        <div class="pagination-container" style="padding-bottom: 10rem;">
             <!-- Botões de página -->
             <paginate-component :paginationLinks="materias" :paginacao="paginacao" @page-changed="carregarLista"></paginate-component>
         </div>

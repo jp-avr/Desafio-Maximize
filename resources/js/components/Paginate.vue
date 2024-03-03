@@ -16,7 +16,7 @@
 <style>
 .pagination-container {
     display: flex;
-    justify-content: center; /* Centraliza horizontalmente */
+    justify-content: flex-end; 
     margin-top: 20px; /* Espaçamento superior (opcional) */
 }
 .pagination-button {

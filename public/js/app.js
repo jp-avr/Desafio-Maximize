@@ -3667,18 +3667,18 @@ var render = function render() {
         }
       }
     }, [_c("div", {
-      staticClass: "row no-gutters"
+      staticClass: "row no-gutters h-100"
     }, [_c("div", {
       staticClass: "col-md-8"
     }, [_c("div", {
-      staticClass: "card-body"
-    }, [_c("h3", {
+      staticClass: "card-body h-100 d-flex justify-content-between flex-column"
+    }, [_c("div", [_c("h3", {
       staticClass: "card-title"
     }, [_vm._v(_vm._s(materia.materia_titulo))]), _vm._v(" "), _c("p", {
       staticClass: "card-subtitle mb-2 text-muted"
     }, [_vm._v(_vm._s(_vm._f("formataDataTempo")(materia.created_at)))]), _vm._v(" "), _c("p", {
       staticClass: "card-subtitle mb-2"
-    }, [_vm._v(_vm._s(materia.materia_descricao))]), _vm._v(" "), _vm.visualizar ? _c("a", {
+    }, [_vm._v(_vm._s(materia.materia_descricao))])]), _vm._v(" "), _vm.visualizar ? _c("a", {
       staticClass: "icon-link-hover stretched-link fw-semibold"
     }, [_vm._v("\n              Ler mais\n            ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-4 d-flex align-items-center"
@@ -3948,16 +3948,16 @@ var render = function render() {
   return _c("div", {
     staticClass: "container"
   }, [_vm._m(0), _vm._v(" "), _c("card-materias", {
-    staticStyle: {
-      "padding-bottom": "5rem"
-    },
     attrs: {
       id: "modalMateriaVisualizar",
       dados: _vm.materias.data,
       visualizar: true
     }
   }), _vm._v(" "), _c("div", {
-    staticClass: "pagination-container"
+    staticClass: "pagination-container",
+    staticStyle: {
+      "padding-bottom": "10rem"
+    }
   }, [_c("paginate-component", {
     attrs: {
       paginationLinks: _vm.materias,
@@ -8932,7 +8932,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.pagination-container {\r\n    display: flex;\r\n    justify-content: center; /* Centraliza horizontalmente */\r\n    margin-top: 20px; /* Espaçamento superior (opcional) */\n}\n.pagination-button {\r\n    padding: 0.5rem 1rem;\r\n    margin: 0 0.5rem;\r\n    background-color: #0DADAE;\r\n    color: #ffffff;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    cursor: pointer;\r\n    transition: background-color 0.3s ease;\n}\n.pagination-button:hover {\r\n    background-color: #0056b3;\n}\r\n\r\n", ""]);
+exports.push([module.i, "\n.pagination-container {\r\n    display: flex;\r\n    justify-content: flex-end; \r\n    margin-top: 20px; /* Espaçamento superior (opcional) */\n}\n.pagination-button {\r\n    padding: 0.5rem 1rem;\r\n    margin: 0 0.5rem;\r\n    background-color: #0DADAE;\r\n    color: #ffffff;\r\n    border: none;\r\n    border-radius: 0.25rem;\r\n    cursor: pointer;\r\n    transition: background-color 0.3s ease;\n}\n.pagination-button:hover {\r\n    background-color: #0056b3;\n}\r\n\r\n", ""]);
 
 // exports
 
