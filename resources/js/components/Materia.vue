@@ -8,13 +8,22 @@
         </div>
 
         <card-materias style="padding-bottom: 5rem;" id="modalMateriaVisualizar" :dados="materias.data" :visualizar="true"></card-materias>
-        
+            
+        <div class="pagination-container">
+            <!-- Botões de página -->
+            <paginate-component :paginationLinks="materias" :paginacao="paginacao" @page-changed="carregarLista"></paginate-component>
+        </div>
     </div>
 </template>
 
 <script>
+import PaginateVue from './Paginate.vue';
+
 export default {
-    props: ['dados', 'titulo'],  
+    components:{
+        PaginateVue
+    },
+    props: ['dados', 'titulo','paginationLinks'],  
 computed: {
         token() {
             let token = document.cookie.split(';').find(indice => {
@@ -44,8 +53,13 @@ data() {
   };
 },
 methods: {
+    paginacao(page) {
+        this.urlBase = `http://localhost:8000/api/materia_completa?page=${page}`
+        this.carregarLista()
+        console.log(page)
+    },
     getPosts(page = 1) {
-        axios.get('http://localhost:8000/api/materia?page=' + page)
+        axios.get(`http://localhost:8000/api/materia?page=${page}`)
         .then(response => {
             this.posts = response.data;
         })
@@ -62,7 +76,6 @@ methods: {
         axios.get(this.urlBase, config)
         .then(response => {
             this.materias = response.data
-            console.log(this.materias)
         })
         .catch(errors => {
             console.log(errors)
@@ -75,3 +88,26 @@ mounted() {
 }
 };
 </script>
+
+<style>
+.pagination-container {
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente */
+    margin-top: 20px; /* Espaçamento superior (opcional) */
+}
+.pagination-button {
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    background-color: #007bff;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pagination-button:hover {
+    background-color: #0056b3;
+}
+
+</style>

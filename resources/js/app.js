@@ -39,8 +39,8 @@ Vue.component('materias-component', require('./components/Materia.vue').default)
 Vue.component('card-materias', require('./components/CardMateria.vue').default);
 Vue.component('materia-completa', require('./components/MateriaCompleta.vue').default);
 Vue.component('materia-inserir', require('./components/MateriaInserir.vue').default);
-
 Vue.component('modal-component', require('./components/Modal.vue').default);
+Vue.component('paginate-component', require('./components/Paginate.vue').default);
 
 
 /**

@@ -16,7 +16,7 @@ class MateriaApiController extends Controller
 
     public function index()
     {
-        $materias = $this->materia->paginate(10); //Acessando um método de um objeto
+        $materias = $this->materia->paginate(5); //Acessando um método de um objeto
 
         $materias->each(function ($materia) {
             $materia->makeHidden('materia_texto_completo');
@@ -27,7 +27,7 @@ class MateriaApiController extends Controller
 
     public function index_completo()
     {
-        $materias = $this->materia->orderBy('materia_id','desc')->paginate(5); //Acessando um método de um objeto
+        $materias = $this->materia->orderBy('materia_id','desc')->paginate(4); //Acessando um método de um objeto
 
         return response()->json($materias, 200);
     }
