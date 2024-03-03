@@ -6,16 +6,17 @@
                     <div class="card-header">Entre em sua conta</div>
 
                     <div class="card-body">
+                        <div v-if="errorMessage" v-html="errorMessage" class="error-message"></div>
                         <form method="POST" action="" @submit.prevent="login($event)">
                             <input type="hidden" name="_token" :value="csrf_token">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Endereço de Email</label>
-                                <input id="email" type="email" class="form-control" name="email" placeholder="Digite seu Email" value="" required autocomplete="email" autofocus v-model="email">
+                                <input id="email" type="email" class="form-control" name="email" placeholder="Digite seu Email" value="" autocomplete="email" autofocus v-model="email">
                             </div>
 
                             <div class="mb-3">
                                 <label for="password" class="forml-label">Senha</label>
-                                <input id="password" type="password" class="form-control" placeholder="Digite sua Senha" name="password" required autocomplete="current-password" v-model="password">
+                                <input id="password" type="password" class="form-control" placeholder="Digite sua Senha" name="password" autocomplete="current-password" v-model="password">
                             </div>
 
                             <div class="mb-3 form-check">
@@ -39,11 +40,13 @@
         data() {
             return {
                 email: '',
-                password: ''
+                password: '',
+                errorMessage: '',
             }
         },
         methods: {
             login(e) {
+                // e.preventDefault();
 
                 let url = 'http://localhost:8000/api/login'
                 let configuracao = {
@@ -57,11 +60,23 @@
                     .then(response => response.json())
                     .then(data => {
                         if(data.token) {
-                            document.cookie = 'token='+data.token+';SameSite=Lax'
+                            document.cookie = 'token='+data.token+';SameSite=Lax';
+                            // window.location.href= '/home';
+                        }else {
+                            this.errorMessage = 'Credenciais inválidas.';
                         }
+                        console.log(data)
                         //dá a sequência no envio do form de autenticação por sessão
                         e.target.submit()    
                     })
+                    .catch(error => {
+                        this.errorMessage = 'Ocorreu um erro ao processar a solicitação.';
+                        console.error(error);
+                        console.error(error);
+                    })
+            },
+            Error() {
+                this.successMessage = '';
             }
         }
     }

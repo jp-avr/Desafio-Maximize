@@ -3267,11 +3267,15 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       email: '',
-      password: ''
+      password: '',
+      errorMessage: ''
     };
   },
   methods: {
     login: function login(e) {
+      var _this = this;
+      // e.preventDefault();
+
       var url = 'http://localhost:8000/api/login';
       var configuracao = {
         method: 'post',
@@ -3285,10 +3289,21 @@ __webpack_require__.r(__webpack_exports__);
       }).then(function (data) {
         if (data.token) {
           document.cookie = 'token=' + data.token + ';SameSite=Lax';
+          // window.location.href= '/home';
+        } else {
+          _this.errorMessage = 'Credenciais inválidas.';
         }
+        console.log(data);
         //dá a sequência no envio do form de autenticação por sessão
         e.target.submit();
+      })["catch"](function (error) {
+        _this.errorMessage = 'Ocorreu um erro ao processar a solicitação.';
+        console.error(error);
+        console.error(error);
       });
+    },
+    Error: function Error() {
+      this.successMessage = '';
     }
   }
 });
@@ -3763,7 +3778,12 @@ var render = function render() {
     staticClass: "card-header"
   }, [_vm._v("Entre em sua conta")]), _vm._v(" "), _c("div", {
     staticClass: "card-body"
-  }, [_c("form", {
+  }, [_vm.errorMessage ? _c("div", {
+    staticClass: "error-message",
+    domProps: {
+      innerHTML: _vm._s(_vm.errorMessage)
+    }
+  }) : _vm._e(), _vm._v(" "), _c("form", {
     attrs: {
       method: "POST",
       action: ""
@@ -3803,7 +3823,6 @@ var render = function render() {
       name: "email",
       placeholder: "Digite seu Email",
       value: "",
-      required: "",
       autocomplete: "email",
       autofocus: ""
     },
@@ -3836,7 +3855,6 @@ var render = function render() {
       type: "password",
       placeholder: "Digite sua Senha",
       name: "password",
-      required: "",
       autocomplete: "current-password"
     },
     domProps: {
