@@ -47,6 +47,10 @@ https://devtools.vuejs.org/guide/installation.html
 - Login: dev@dev.com
 - Password: 123
 
+## Autor
+
+* **João Pedro** - [GitHub](https://github.com/jp-avr)
+
 
 ## Toda a documentação de como instalar o JWT em seu projeto pode ser vista aqui:
 
