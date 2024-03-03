@@ -10,6 +10,8 @@
 - Node 20.10.0 (versões recentes)
 
 ## Database
+Caso esteja utilizando o WampServer ou suas variações para rodar localmente você pode:
+
 - Criar em seu localhost uma nova Database
 - Em seguida coloque o nome da Database criada no seu .env no campo 'DB_DATABASE' da seguinte forma: 
 

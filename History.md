@@ -19,3 +19,4 @@
 ## Modificações
 - A ideia era utilizar somente o Laravel com o Blade, mas como o nome sugere um Desafio decidi utilizar o Vue.js, já que não é um recurso que todos possuem conhecimento.
 - Devido ao Vue.js fui forçado a pesquisar diferentes documentações e aprender coisas interessantes para usar em meus projetos, fora o reforço na base de JavaScript.
+- A alteração da imagem de capa da notícia foi alterada de opcional para obrigatória, pois uma notícia sem imagens não chamaria a atenção do leitor.
