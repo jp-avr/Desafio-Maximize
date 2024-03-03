@@ -8,7 +8,7 @@
               <h3 class="card-title">{{ materia.materia_titulo }}</h3>
               <p class="card-subtitle mb-2 text-muted">{{ materia.created_at | formataDataTempo }}</p>
               <p class="card-subtitle mb-2">{{ materia.materia_descricao }}</p>
-              <a href="#" v-if="visualizar" class="icon-link-hover stretched-link fw-semibold">
+              <a v-if="visualizar" class="icon-link-hover stretched-link fw-semibold">
                 Ler mais
               </a>
             </div>

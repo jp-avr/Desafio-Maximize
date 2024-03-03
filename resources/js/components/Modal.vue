@@ -7,18 +7,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body" style="padding: 2rem;">
-                        <!-- <div>
-                            {{ $store.state.item.created_at  | formataDataTempo }}
-                        </div>
-                        <div>
-                            {{ $store.state.item.materia_descricao }}
-                        </div>
-                        <div>
-                            <img :src="'storage/'+$store.state.item.materia_imagem" v-if="$store.state.item.materia_imagem" width="200" height="250">
-                        </div>
-                        <div>
-                            {{ $store.state.item.materia_texto_completo }}
-                        </div> -->
                          <h1 class="fw-bold"> {{ $store.state.item.materia_titulo }} </h1>
                          <p> {{ $store.state.item.materia_descricao }} </p>
                          <p class="text-secondary"> Última atualização em {{ $store.state.item.created_at | formataDataTempo }} </p>
@@ -26,9 +14,7 @@
                          <div>
                             <img :src="'storage/'+$store.state.item.materia_imagem" width="100%" height="auto" v-if="$store.state.item.materia_imagem">
                          </div>
-
-                         <p style="text-align: justify; margin-top: 1rem"> {{ $store.state.item.materia_texto_completo }} </p>
-
+                         <p style="text-align: justify; margin-top: 1rem" v-html="breakLines($store.state.item.materia_texto_completo)"></p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
@@ -41,6 +27,11 @@
 
 <script>
     export default {
+        methods: {
+            breakLines(text) {
+                return text.replace(/\./g, '.<br>');
+            }
+        },
         filters: {
         formataDataTempo(d) {
             d = d.split('T')

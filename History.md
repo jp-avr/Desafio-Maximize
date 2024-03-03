@@ -8,6 +8,8 @@
 - As partes de componentização e conexão direta com a API se mostraram um pouco dificeis, mas após pesquisas consegui componentizar as telas principais e criar a conexão
 - Após componentizar e criar componentes no Vue.js chegou a parte da estilização da tela principal
 - Me baseando na imagem enviada criei um site de noticias que recebe dados da API e os mostra na tela principal para todos lerem
+- Devido ao fato do redirecionamento de tela exigir muitos cliques do usuário optei pela criação de um Modal que retorna todos os dados da respectiva notícia
+- Por causa do Modal de notícias o usuário poderá ler a noticia completa e ao clicar fora da tela já poderá clicar em outra notícia mais rapidamente
 
 ## Ideias para implementar
 - Caso eu possuísse mais tempo gostaria de ter implementado com Vue Router e com o Vuex uma aplicação completa com redirecionamentos e permissões de Administrador e de usuário

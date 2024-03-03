@@ -7,12 +7,7 @@
 </template>
 
 <script>
-import MateriaVue from './Materia.vue'
-
     export default {
-        components: {
-            MateriaVue
-        },
         props: ['paginationLinks','paginacao'],
     }
 </script>
