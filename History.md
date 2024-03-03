@@ -12,11 +12,19 @@
 - Por causa do Modal de notícias o usuário poderá ler a noticia completa e ao clicar fora da tela já poderá clicar em outra notícia mais rapidamente
 
 ## Ideias para implementar
-- Caso eu possuísse mais tempo gostaria de ter implementado com Vue Router e com o Vuex uma aplicação completa com redirecionamentos e permissões de Administrador e de usuário
-- Com o Vue router seria possível o redirecionamento para outros componentes com os dados enviados, e o Vuex serve para manter os dados possíveis de serem pegos em qualquer Componente sem a necessidade de passar via props
+- Caso eu possuísse mais tempo gostaria de ter implementado com Vue Router e com o Vuex uma aplicação completa com redirecionamentos e permissões de Administrador e de usuário.
+- Com o Vue router seria possível o redirecionamento para outros componentes com os dados enviados, e o Vuex serve para manter os dados possíveis de serem pegos em qualquer Componente sem a necessidade de passar via props.
 - Adicionar mais efeitos de suavização nos elementos do front e animações.
+- Telas mais bonitas e dinâmicas para um melhor agrado visual ao leitor.
 
 ## Modificações
 - A ideia era utilizar somente o Laravel com o Blade, mas como o nome sugere um Desafio decidi utilizar o Vue.js, já que não é um recurso que todos possuem conhecimento.
 - Devido ao Vue.js fui forçado a pesquisar diferentes documentações e aprender coisas interessantes para usar em meus projetos, fora o reforço na base de JavaScript.
 - A alteração da imagem de capa da notícia foi alterada de opcional para obrigatória, pois uma notícia sem imagens não chamaria a atenção do leitor.
+
+## Arquitetura utilizada
+Foi utilizado uma arquitetura MVC padrão, pois:
+-A arquitetura MVC separa as responsabilidades de diferentes partes do aplicativo. O Model é responsável pela manipulação e lógica dos dados, a View pela apresentação da interface de usuário e o Controller pela lógica de controle e coordenação.
+-Facilidade de Manutenção: Devido a separação de responsabilidades no modelo MVC torna-se mais fácil realizar a manutenção do código em diferentes partes.
+-Reutilização de Código: Os componentes dessa arquitetura permitem que eles sejam reutilizados em diferentes partes da aplicação.
+-Escalabilidade: Quanto mais o aplicativo cresce, geralmente seria mais dificil expandir a aplicação, coisa que o modelo MVC torna mais fácil.
