@@ -3627,7 +3627,16 @@ var render = function render() {
       key: materia.materia_id,
       staticClass: "col-md-6 mb-4"
     }, [_c("div", {
-      staticClass: "card h-100"
+      staticClass: "card h-100",
+      attrs: {
+        "data-bs-toggle": "modal",
+        "data-bs-target": "#modalMateria"
+      },
+      on: {
+        click: function click($event) {
+          return _vm.setStore(materia);
+        }
+      }
     }, [_c("div", {
       staticClass: "row no-gutters"
     }, [_c("div", {
@@ -3643,14 +3652,7 @@ var render = function render() {
     }, [_vm._v(_vm._s(materia.materia_descricao))]), _vm._v(" "), _vm.visualizar ? _c("a", {
       staticClass: "icon-link-hover stretched-link fw-semibold",
       attrs: {
-        href: "#",
-        "data-bs-toggle": "modal",
-        "data-bs-target": "#modalMateria"
-      },
-      on: {
-        click: function click($event) {
-          return _vm.setStore(materia);
-        }
+        href: "#"
       }
     }, [_vm._v("\n              Ler mais\n            ")]) : _vm._e()])]), _vm._v(" "), _c("div", {
       staticClass: "col-md-4 d-flex align-items-center"
