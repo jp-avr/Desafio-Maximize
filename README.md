@@ -1,60 +1,69 @@
-## Sobre o projeto
-- Este projeto fora criado como um teste para a vaga de Desenvolvedor Back End na MAXIMIZE.
-- Esta aplicação visa a criação de um Feed de notícias utilizando uma API.
-- A aplicação está utilizando Laravel 7.x e PHP 7.3.33.
+# Sobre o Projeto
 
-### 📋 Pré-requisitos
+Este projeto foi desenvolvido como parte de um teste para a vaga de Desenvolvedor Back End na [MAXIMIZE](https://maximize.com.br/). A aplicação tem como objetivo criar um feed de notícias utilizando uma API. Foi construída utilizando Laravel 7.x e PHP 7.3.33.
+
+## Pré-requisitos
+
+Para executar este projeto, você precisará ter instalado em seu ambiente:
 
 - PHP 7.3.33
 - Composer
-- Node 20.10.0 (versões recentes)
+- Node.js 20.10.0 (ou versões mais recentes)
+- MySQL
 
-## Database
-Caso esteja utilizando o WampServer ou suas variações para rodar localmente você pode:
+## Configuração do Banco de Dados
 
-- Criar em seu localhost uma nova Database
-- Em seguida coloque o nome da Database criada no seu .env no campo 'DB_DATABASE' da seguinte forma: 
+Se estiver utilizando o WampServer ou uma configuração similar para rodar localmente, siga estas instruções:
 
-![alt text](image.png)
+1. Crie uma nova base de dados em seu localhost.
+2. No arquivo `.env`, configure o nome da base de dados no campo `DB_DATABASE`.
+3. Execute o comando `php artisan migrate:fresh --seed` para criar e popular as tabelas no banco de dados.
 
-- Rodar o comando 'php artisan migrate:fresh --seed' para puxar localmente todas as tabelas do banco.
+## Tecnologias Utilizadas
 
-## O que foi utilizado no projeto
+O projeto faz uso das seguintes tecnologias:
 
-O projeto foi construído utilizando 2 frameworks e um banco de dados compatível:
+- Laravel: Framework Back-End
+- Vue.js: Framework Front-End
+- MySQL: Banco de dados
 
-* [Laravel](https://laravel.com/docs/7.x) - Framework Back-End
-* [Vue-js](https://vuejs.org/) - Framework Front-End
-* [MySQL](https://www.mysql.com/) - Banco de dados utilizado
+## Como Rodar o Projeto
 
+Para executar o projeto localmente, siga as instruções abaixo:
 
-## Como rodar o projeto
-- Após clonar o projeto utilizar os comandos:
+1. Clone o repositório do projeto.
+2. Execute os seguintes comandos:
 
-- 1 - ```composer require laravel/ui:^2.4```
-- 2 - ```npm install```
-- 3 - ```npm run dev (desenvolvimento) ou npm run production (produção)```
-- 4 - ```php artisan storage:link (faz um link para o local que está sendo salvo as imagens)```
-- 5 - ```composer require tymon/jwt-auth (autenticação token)```
-- 6 - ```Caso seu projeto não venha com o .env você deverá crialo na raiz do projeto```
-- 7 - ```php artisan jwt:secret (cria uma chave token no .env)```
-- 8 - ```php artisan migrate:fresh --seed (para puxar localmente todas as tabelas do banco.)```
-- 9 - ```php artisan serve (Para rodar o projeto)```
-- Obs: Caso esteja rodando em ambiente de desenvolvimento no Google Chrome é recomendado que baixe a extensão para Vue.js nesse link:
-https://devtools.vuejs.org/guide/installation.html
+```bash
+composer require laravel/ui:^2.4
+npm install
+npm run dev # para ambiente de desenvolvimento ou npm run production para produção
+php artisan storage:link # cria um link para o local onde as imagens estão sendo salvas
+composer require tymon/jwt-auth # para autenticação via token
+```
 
-## Credenciais
-- Login: dev@dev.com
-- Password: 123
+3. Caso o arquivo `.env` não exista, crie-o na raiz do projeto.
+4. Execute o comando `php artisan jwt:secret` para gerar uma chave de token no arquivo `.env`.
+5. Execute o comando `php artisan migrate:fresh --seed` para criar e popular as tabelas no banco de dados.
+6. Execute o comando `php artisan serve` para iniciar o servidor e rodar o projeto.
+
+Observação: Se estiver utilizando o Google Chrome como navegador de desenvolvimento, é recomendável instalar a extensão Vue.js para uma melhor experiência de depuração. Você pode encontrar a extensão [aqui](https://devtools.vuejs.org/guide/installation.html).
+
+## Credenciais de Acesso
+
+Após rodar `php artisan migrate:fresh --seed`, vá diretamente para a rota [Login](http://localhost:8000/login) e acesse com o seguinte usuário:
+
+- **Login:** dev@dev.com
+- **Senha:** 123
 
 ## Autor
 
-* **João Pedro** - [GitHub](https://github.com/jp-avr)
+**João Pedro** - [GitHub](https://github.com/jp-avr)
 
+## Referências
 
-## Toda a documentação de como instalar o JWT em seu projeto pode ser vista aqui:
-
-- https://jwt-auth.readthedocs.io/en/develop/laravel-installation/ (instalar no projeto)
-
-- https://jwt-auth.readthedocs.io/en/develop/quick-start/ (quick start)
+- Documentação do Laravel: [https://laravel.com/docs/7.x](https://laravel.com/docs/7.x)
+- Documentação do Vue.js: [https://vuejs.org/](https://vuejs.org/)
+- Documentação do MySQL: [https://www.mysql.com/](https://www.mysql.com/)
+- Documentação do JWT Auth para Laravel: [https://jwt-auth.readthedocs.io/en/develop/laravel-installation/](https://jwt-auth.readthedocs.io/en/develop/laravel-installation/)
 
